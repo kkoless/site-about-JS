@@ -222,7 +222,6 @@ function getBlock(){
     currMonth = "0" + currMonth;
   }
   var currDay = todayDate.getDate();
-  blok_info.innerHTML = '<img src="photo/logo.svg" width="50px" height="50px">'
   blok_info.innerHTML += currDay + "." + currMonth + "." + currYear + "<br>";
   if(localStorage.getItem('username') != null){
     blok_info.innerHTML += localStorage.getItem('username');
