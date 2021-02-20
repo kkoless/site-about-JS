@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'TT Commons ';
+    src: local('TT Commons  Extra Bold'), local('TT-Commons--Extra-Bold'),
+        url('TTCommons-ExtraBold.woff2') format('woff2'),
+        url('TTCommons-ExtraBold.woff') format('woff'),
+        url('TTCommons-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }

@@ -1,0 +1,645 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+@font-face {
+  font-family: 'TT Commons';
+  src: local('TT Commons  Extra Bold'), local('TT-Commons--Extra-Bold'),
+      url('../TTCommons-ExtraBold/TTCommons-ExtraBold.woff2') format('woff2'),
+      url('../TTCommons-ExtraBold/TTCommons-ExtraBold.woff') format('woff'),
+      url('../TTCommons-ExtraBold/TTCommons-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+/* --------------- */
+
+/* Убрал автоматические отступы */
+* {
+  margin: 0;
+  padding: 0;
+}
+/* --------------- */
+
+/* Быстрый переход вверх */
+#up{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin-right: 25px;
+  margin-bottom: 10px;
+  display: none;
+}
+/* --------------- */
+
+/* Шапка страницы */
+.header{
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* Убрал подчеркивания у ссылок в "шапке" */
+header a{
+  text-decoration:none;
+  color: white;
+}
+.header_logo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.header h1{
+  color: white;
+  font-family: 'TT Commons';
+  font-size:35px;
+  margin-left: 10px;
+  padding-top: 12px;
+}
+.header_info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#header_info_about, #header_info_opportunities, 
+#header_info_username, #header_info_demonstration{
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size:16px;
+  margin: 10px;
+}
+#header_info_username{
+  border-left: 5px solid #f5de19;
+  padding-left: 5px;
+}
+/* --------------- */
+
+/* Главная часть, в которой будет располагаться основная информация */
+main, .main_content{
+  background-color: #f5de19;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main_content{
+  width: 70%;
+  margin-top: 50px;
+}
+/* --------------- */
+
+/* Блок "Первое знакомство" */
+#about{
+  display: flex;
+  flex-direction: column;
+}
+#about_header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#about_header_left{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#about_header_right{
+  margin-right: 80px;
+}
+#about_title1{
+  background-color: black;
+  color: #f5de19;
+  font-family: 'TT Commons';
+  font-size:30px;
+  padding: 8px 15px 0 15px;
+  display: flex;
+  align-items: center;
+}
+#about_title2{
+  color: black;
+  font-family: 'TT Commons';
+  font-size:75px;
+  margin-top: 15px;
+  padding: 15px 15px 0 5px;
+}
+#about_info1, #about_info2, 
+#about_info3, #about_info4{
+  margin-top:25px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#about_info1 img, #about_info2 img, 
+#about_info3 img{
+  border-radius: 15px;
+}
+.about_info_img{
+  padding: 5px 5px 1px 5px;
+}
+.about_info_text{
+  padding: 0 15px 0 15px;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-size:29px;
+  /* text-align: center; */
+}
+/* --------------- */
+
+/* Блок "Возможности" */
+#opportunities{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  margin-top: 5px;
+  margin-bottom: 35px;
+}
+#opportunities_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  margin-top: -10px;
+}
+#opportunities_info img{
+  border-radius: 15px;
+  margin: 15px 5px 0px 5px;
+}
+#opportunities_info_text1, #opportunities_info_text2, #opportunities_info_text3{
+  padding: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-size:27px;
+}
+#opportunities_title{
+  color: black;
+  font-family: 'TT Commons';
+  font-size:62px;
+  margin-top: 20px;
+  padding: 15px 15px 0 15px;
+  display: flex;
+  justify-content: center;
+}
+.opportunities_info_text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.opportunities_info_block{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#opportunities_info_block1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#opportunities_info_block2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  text-align:center;
+}
+#opportunitiest_info_img_block{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+.opportunitiest_info_img{
+  transition: 1s;
+}
+.opportunitiest_info_img:hover{
+  transform: scale(1.1);
+}
+/* --------------- */
+
+/* Блок "Преимущества и недостатки JS" */
+#score{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.score_info{
+  font-family: 'Roboto', sans-serif;
+  font-size:23px;
+  margin: 12px 20px 12px 20px;
+}
+.score_title{
+  font-family: 'TT Commons';
+  font-size:60px;
+  display: flex;
+  justify-content: center;
+}
+#advantages_info, #disadvantages_info {
+  width: 50%;
+}
+#advantages_info li, #disadvantages_info li{
+  margin: 10px ;
+  padding-bottom: 10px;
+  padding-left: 5px;
+}
+#advantages_info ol{
+  border-right: 5px solid black;
+}
+/* --------------- */
+
+/* Блок с демонстрацией */
+#demonstration{
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+#demonstration_header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#demonstration_header_left{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#demonstration_header_right{
+  margin-right: 100px;
+}
+#demonstration_title1{
+  background-color: black;
+  color: #f5de19;
+  font-family: 'TT Commons';
+  font-size:30px;
+  padding: 8px 15px 0 15px;
+  display: flex;
+  align-items: center;
+}
+#demonstration_title2{
+  color: black;
+  font-family: 'TT Commons';
+  font-size:55px;
+  margin-top: 15px;
+  padding: 15px 15px 0 5px;
+}
+#demonstration_title3{
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-size:25px;
+  margin-top: 5px;
+  padding-left: 5px;
+  /* padding: 15px 15px 0 5px; */
+}
+
+#demonstration_block1, #demonstration_block2, 
+#demonstration_block3, #demonstration_block4,
+#demonstration_block5, #demonstration_block7{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 20px 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+.demonstration_info1, .demonstration_info2{
+  display: flex;
+  flex-direction: row;
+}
+.demonstration_info2{
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+
+}
+.demonstration_info2 p{
+  font-family: 'Roboto', sans-serif;
+  font-size:23px;
+  margin: 0 15px 0 5px;
+}
+.demonstration_info_left{
+  font-family: 'TT Commons';
+  font-size:50px;
+  margin-right: 50px;
+}
+.demonstration_info_right{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'TT Commons';
+  font-size:30px;
+}
+.demonstration_info_right_task{
+  margin-right: 15px;
+}
+/* --------------- */
+
+/* Блоки для ввода информации пользователя */
+#area_info, #count_info,
+#username_info, #massiv_info,
+#timer_info{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-left:5px;
+  margin-right: 15px;
+  font-size: 22px;
+  border-left: 2px solid black;
+  padding-top: 5px;
+}
+#username_info{
+  padding-left: 0;
+}
+#count_info,#area_info, #massiv_info, #timer_info{
+  padding-left: 10px;
+}
+#count_info p, #area_info p{
+  margin-bottom: 5px;
+}
+/* --------------- */
+
+/* Поле ввода имени пользователя */
+#username{
+  border: 1px solid #f5de19;
+  border-radius: 15px;
+  margin-left: 15px;
+  margin-right: 20px;
+  padding: 2px 0 0 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size:25px;
+}
+/* --------------- */
+
+/* Поле ввода для чисел, таймера */
+.num, .massiv, .timer, .count{
+  border: 1px solid #f5de19;
+  border-radius: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px 0 2px 10px;
+  width: 4em;
+  font-family: 'Roboto', sans-serif;
+  font-size:20px;
+}
+.count{
+  margin-left: 15px;
+  margin-right: 20px;
+  padding: 2px 0 0 10px;
+}
+/* --------------- */
+
+/* Кнопка */
+.sub, .stop{
+  font-family: 'Roboto', sans-serif;
+  font-size:20px;
+  background: black;
+  color: #f5de19;
+  border-radius: 15px;
+  border: none;
+  padding: 8px 16px;
+  appearance: none;
+}
+/* --------------- */
+
+
+/* ----------- */
+/* ТАЙМЕР */
+/* ----------- */
+.countdown {
+  font-family: 'Roboto', sans-serif;
+  color: #f5de19;
+  display: inline-block;
+  text-align: center;
+  font-size: 30px;
+}
+.countdown-number {
+  padding: 10px;
+  border-radius: 10px;
+  background: black;
+  display: inline-block;
+}
+.countdown-time {
+  padding: 15px;
+  border-radius: 10px;
+  background: black;
+  display: inline-block;
+}
+.countdown-text {
+  display: block;
+  padding-top: 5px;
+  font-size: 16px;
+}
+.deadline-message{
+  display: none;
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+}
+.proshlo-vremeni{
+  display: none;
+}
+.visible{
+  display: block;
+}
+.hidden{
+  display: none;
+}
+#timer_res{
+  flex-direction: column;
+}
+/* --------------- */
+
+/* Тест */
+#test_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.question{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px;
+}
+#demonstration_block6{
+  border-bottom: 2px solid black;
+}
+#demonstration_block6 .demonstration_info_right{
+  display: flex;
+  flex-direction: column;
+}
+/* --------------- */
+
+/* Всплывающее окно */
+#screen_info {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .6);
+  z-index: 99;
+  display: none;
+}
+#some {
+  transition: 2s;
+  background: black;
+  width: 25%;
+  height: 25%;
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
+  color:#f5de19;
+  font-size: 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto
+}
+/* --------------- */
+
+@media (min-width: 900px) and (max-width: 1460px){
+  *{
+    box-sizing: border-box;
+  }
+  #about_header{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #header_info_about, #header_info_opportunities, 
+  #header_info_demonstration{
+    font-size:13px;
+    margin: 7px;
+  }
+  #header_info_username{
+    font-size:11px;
+  }
+  #help_info_img{
+    display: none;
+  }
+  .about_info_img{
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  #about_info1, #about_info2,
+  #about_info3, #about_info4{
+    flex-direction: column;
+  }
+  .about_info_text{
+    font-size: 23px;
+    text-align: center;
+  }
+
+
+  #help_opportunitiest_info_img{
+    width: 750px;
+  }
+  .opportunities_info_block{
+    flex-direction: column;
+  }
+  #opportunities_info_text2,
+  #opportunities_info_text1{
+    font-size: 23px;
+    text-align: center;
+    justify-content: center;
+  }
+
+
+  .score_title{
+    font-size: 35px;
+    text-align: center;
+  }
+  #advantages_info li{
+    margin-right: 25px;
+  }
+}
+
+@media (min-width: 760px) and (max-width: 899px){
+  *{
+    box-sizing: border-box;
+  }
+  .header h1{
+    font-size:32px;
+  }
+  #header_info_about, #header_info_opportunities, 
+  #header_info_demonstration{
+    font-size:12px;
+    margin: 7px;
+  }
+  #header_info_username{
+    font-size:10px;
+  }
+  #about_header{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #help_info_img{
+    display: none;
+  }
+  .about_info_img{
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  #about_info1, #about_info2,
+  #about_info3, #about_info4{
+    flex-direction: column;
+  }
+  .about_info_text{
+    font-size: 23px;
+    text-align: center;
+  }
+
+  #help_opportunitiest_info_img{
+    width: 670px;
+  }
+  .opportunities_info_block{
+    flex-direction: column;
+  }
+  #opportunities_info_text2,
+  #opportunities_info_text1{
+    font-size: 23px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .score_title{
+    font-size: 35px;
+    text-align: center;
+  }
+  #advantages_info li{
+    margin-right: 25px;
+  }
+
+  #demonstration_header{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #demonstration_header_left{
+    align-items: center;
+  }
+  #demonstration_header_right{
+    margin-right: 0px;
+  }
+  .demonstration_info1{
+    flex-direction: column;
+  }
+  #anim{
+    justify-content: flex-start;
+  }
+}
