@@ -64,7 +64,7 @@ header a{
 #header_info_username, #header_info_demonstration{
   color: white;
   font-family: 'Roboto', sans-serif;
-  font-size:16px;
+  font-size:15px;
   margin: 10px;
 }
 #header_info_username{
@@ -393,7 +393,7 @@ main, .main_content{
 /* --------------- */
 
 /* Кнопка */
-.sub, .stop{
+.stop, .sub{
   font-family: 'Roboto', sans-serif;
   font-size:20px;
   background: black;
@@ -458,7 +458,7 @@ main, .main_content{
   flex-direction: column;
   justify-content: center;
 }
-.question{
+#question1, .question{
   display: flex;
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
@@ -514,6 +514,9 @@ main, .main_content{
 @media (min-width: 900px) and (max-width: 1460px){
   *{
     box-sizing: border-box;
+  }
+  .main_content{
+    width: 85%;
   }
   #about_header{
     flex-direction: column;
@@ -571,6 +574,9 @@ main, .main_content{
 @media (min-width: 760px) and (max-width: 899px){
   *{
     box-sizing: border-box;
+  }
+  .main_content{
+    width: 95%;
   }
   .header h1{
     font-size:32px;
