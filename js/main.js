@@ -72,10 +72,10 @@ function getMinMax(){
 
 // Таймер
 function getTimeRemaining(deadline) {
-  var t = Date.parse(deadline) - Date.parse(new Date());
-  var seconds = Math.floor((t / 1000) % 60);
-  var minutes = Math.floor((t / 1000 / 60) % 60);
-  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  let t = Date.parse(deadline) - Date.parse(new Date());
+  let seconds = Math.floor((t / 1000) % 60);
+  let minutes = Math.floor((t / 1000 / 60) % 60);
+  let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
   return {
     'total': t,
     'hours': hours,
@@ -84,26 +84,27 @@ function getTimeRemaining(deadline) {
   };
 }
 
-var stopFlag = false;
+let stopTimerFlag = false;
 
 // Запуск таймера
 function initializeClock() {
-  if(stopFlag == false) deadline = getTime();
-  if(stopFlag == true) deadline = stopTimer()
+  if(stopTimerFlag == false) deadline = getTime();
+  if(stopTimerFlag == true) deadline = stopTimer()
 
-  var clock = document.getElementById('countdown');
-  var hoursSpan = clock.querySelector('.hours');
-  var minutesSpan = clock.querySelector('.minutes');
-  var secondsSpan = clock.querySelector('.seconds');
+  let clock = document.getElementById('countdown');
+  let hoursSpan = clock.querySelector('.hours');
+  let minutesSpan = clock.querySelector('.minutes');
+  let secondsSpan = clock.querySelector('.seconds');
 
   // Обновление времени
   function updateClock() {
-    var t = getTimeRemaining(deadline);
+    let t = getTimeRemaining(deadline);
 
     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
+    // Время вышло
     if (t.total <= 0) {
       clearInterval(timeinterval);
       document.getElementById("countdown").className = "hidden";
@@ -114,26 +115,26 @@ function initializeClock() {
   }
   document.addEventListener("click", function(e) {
     if (e.target.className=="stop") {
-      stopFlag = true;
+      stopTimerFlag = true;
       clearInterval(timeinterval)
     }
   });
   updateClock();
-  var timeinterval = setInterval(updateClock, 1000);
+  let timeinterval = setInterval(updateClock, 1000);
 }
 
 // Остановка/пауза таймера и отсчет прошедшего времени
 function stopTimer(){
-  var clock = document.getElementById('countdown');
-  var hoursSpan = clock.querySelector('.hours').textContent;
-  var minutesSpan = clock.querySelector('.minutes').textContent;
-  var secondsSpan = clock.querySelector('.seconds').textContent;
+  let clock = document.getElementById('countdown');
+  let hoursSpan = clock.querySelector('.hours').textContent;
+  let minutesSpan = clock.querySelector('.minutes').textContent;
+  let secondsSpan = clock.querySelector('.seconds').textContent;
   let deadline = new Date(Date.parse(new Date()) + (hoursSpan * 60 * 60 * 1000) + (minutesSpan * 60 * 1000) + (secondsSpan * 1000));
 
-  var proshlo = getTime() - deadline;
-  var seconds = Math.floor((proshlo / 1000) % 60);
-  var minutes = Math.floor((proshlo / 1000 / 60) % 60);
-  var hours = Math.floor((proshlo / (1000 * 60 * 60)) % 24);
+  let proshlo = getTime() - deadline;
+  let seconds = Math.floor((proshlo / 1000) % 60);
+  let minutes = Math.floor((proshlo / 1000 / 60) % 60);
+  let hours = Math.floor((proshlo / (1000 * 60 * 60)) % 24);
   
   let res = document.getElementById("proshlo-vremeni");
   res.innerHTML = "Прошло " + hours + ":" + minutes + ":" + seconds;
@@ -153,57 +154,61 @@ function getTime(){
 // ----------------------
 
 // Тест
-var result;
+let result; //Итоговый результат
+let flagQuiz; //Проверка на пустоту в ответе
 function checkTest(){
   result = 0;
-  var choice;
+  flagQuiz = 0;
+  let choice = ''; // Выбор пользователя
   
-  for(var que = 1; que <= 10; que++){
-    let q = document.forms['quiz'].elements['q'+ que];
-    for (var i = 0; i < q.length; i++){
-      if(q[i].checked){
-        choice = q[i].value
-      } 
+  for(let question = 1; question <= 10; question++){
+    let option = document.forms['quiz'].elements['q'+ question];
+    for (let i = 0; i < option.length; i++){
+      if(option[i].checked){
+        choice = option[i].value;
+      }
     }
+    if (choice == '') flagQuiz++; 
     if (choice == '+'){
       result = result + 1;
       choice = '';
     }
   }
-  if (result <= 2) { 
-    res = "Вы ответили праивльно на <b>" + result + "</b> из 10 вопросов<br>Оценка: <b>Неудовлетворительно</b>"; 
-    tmp = document.getElementById('test_res')
-    tmp.innerHTML = res
-    result = 0;
-  }
-  else if (result >=3 && result <= 5) { 
-    res = "Вы ответили праивльно на <b>" + result + "</b> из 10 вопросов<br>Оценка: <b>Удовлетворительно</b>"; 
-    tmp = document.getElementById('test_res')
-    tmp.innerHTML = res
-    result = 0;
-  }
-  else if (result >= 6 && result < 9 ) { 
-    res = "Вы ответили праивльно на <b>" + result + "</b> из 10 вопросов<br>Оценка: <b>Хорошо</b>"; 
-    tmp = document.getElementById('test_res')
-    tmp.innerHTML = res
-    result = 0;
-  }
-  else if (result == 9 || result == 10) { 
-    res = "Вы ответили праивльно на <b>" + result + "</b> из 10 вопросов<br>Оценка: <b>Отлично</b>"; 
-    tmp = document.getElementById('test_res')
-    tmp.innerHTML = res
-    result = 0;
-  }
-
-  let prav_blok = document.querySelectorAll('label').length
-  for(var i = 0; i < prav_blok; i++){
-    let qw = document.querySelectorAll('label')[i].getElementsByClassName('otvet');
-    for (var j = 0; j < qw.length; j++){
-      if (qw.item(j).value == '+'){
-        document.querySelectorAll('label')[i].style.color = 'green';
-      }
-      else document.querySelectorAll('label')[i].style.color = 'red';
+  if (flagQuiz > 0) alert("Ответ не выбран!");
+  else{
+    if (result <= 2) { 
+      res = "Вы ответили праивльно на <b>" + result + "</b> из 10 вопросов<br>Оценка: <b>Неудовлетворительно</b>"; 
+      tmp = document.getElementById('test_res')
+      tmp.innerHTML = res
+      result = 0;
     }
+    else if (result >=3 && result <= 5) { 
+      res = "Вы ответили праивльно на <b>" + result + "</b> из 10 вопросов<br>Оценка: <b>Удовлетворительно</b>"; 
+      tmp = document.getElementById('test_res')
+      tmp.innerHTML = res
+      result = 0;
+    }
+    else if (result >= 6 && result < 9 ) { 
+      res = "Вы ответили праивльно на <b>" + result + "</b> из 10 вопросов<br>Оценка: <b>Хорошо</b>"; 
+      tmp = document.getElementById('test_res')
+      tmp.innerHTML = res
+      result = 0;
+    }
+    else if (result == 9 || result == 10) { 
+      res = "Вы ответили праивльно на <b>" + result + "</b> из 10 вопросов<br>Оценка: <b>Отлично</b>"; 
+      tmp = document.getElementById('test_res')
+      tmp.innerHTML = res
+      result = 0;
+    }
+    let prav_blok = document.querySelectorAll('label').length
+    for(let i = 0; i < prav_blok; i++){
+      let qw = document.querySelectorAll('label')[i].getElementsByClassName('otvet');
+      for (let j = 0; j < qw.length; j++){
+        if(qw.item(j).value == '+') document.querySelectorAll('label')[i].style.color = 'green';
+        else document.querySelectorAll('label')[i].style.color = 'red';
+      }
+    }
+    document.getElementById('sub_test').disabled = true; // Блок кнопки с повторной отправкой теста
   }
 }
 // -------------------
@@ -213,24 +218,26 @@ let timeVar = '';
 let body = document.querySelector('body')
 let my_blok = document.getElementById("screen_info")
 let blok_info = document.getElementById("some")
+
 function getBlock(){
-  var todayDate = new Date();
-  var currYear = todayDate.getFullYear();
-  var currMonth = todayDate.getMonth() + 1;
-  if(String(currMonth).length == 1){
-    console.log(currMonth.length)
-    currMonth = "0" + currMonth;
-  }
-  var currDay = todayDate.getDate();
+  let todayDate = new Date();
+  let currYear = todayDate.getFullYear();
+  let currMonth = todayDate.getMonth() + 1;
+  let currDay = todayDate.getDate();
+  if(String(currDay).length == 1) currDay = "0" + currDay;
+  if(String(currMonth).length == 1) currMonth = "0" + currMonth;
+
   blok_info.innerHTML += currDay + "." + currMonth + "." + currYear + "<br>";
-  if(localStorage.getItem('username') != null){
-    blok_info.innerHTML += localStorage.getItem('username');
-  }
-  if(my_blok.style.display == "block"){ my_blok.style = "display: none"; }
-  else{ my_blok.style = "display: block"; timeVar = 1; }
+  if(localStorage.getItem('username') != null) blok_info.innerHTML += localStorage.getItem('username');
+  if(my_blok.style.display == "block") my_blok.style = "display: none"; 
+  else my_blok.style = "display: block"; timeVar = 1;
 };
+
 body.onclick = function(){
-  if(!timeVar){ my_blok.style = "display: none"; }
-  if(timeVar) { setTimeout(function(){ timeVar = ''; }, 100);}
+  if(!timeVar){ 
+    my_blok.style = "display: none"; 
+    blok_info.innerHTML = '<img src="photo/logo.svg" width="50px" height="50px">';
+  }
+  if(timeVar) setTimeout(function(){ timeVar = ''; }, 100);
 }
 // -------------------
